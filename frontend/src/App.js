@@ -9,32 +9,15 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            listings: [
-                {
-                    name: "4BHK Raw house",
-                    address: "HSR Layout",
-                    city: "Bengaluru",
-                    price: "17,000",
-                    type: "Rental"
-                },
-                {
-                    name: "2BHK Flat",
-                    address: "Electronic City Phase 1",
-                    city: "Bengaluru",
-                    price: "17,00,000",
-                    type: "Sale"
-                },
-            ]
+            listings: []
         }
     }
 
     updateCity = (cityName) => {
-        axios.post(API_KEY, {
-            cityName
-        }).then(resp => {
-            if(resp.data.status === 1) {
+        axios.get(API_KEY+"?city="+cityName).then(resp => {
+            if(resp.status === 200) {
                 this.setState({
-                    listings: resp.data.listings
+                    listings: resp.data
                 })
             }
         }).catch(err => {
