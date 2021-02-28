@@ -22,6 +22,7 @@ public class HomesearchBackendApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		this.homeRepository.save(new Home(1, "Raw House", "HSR Layout", "Bangalore", "17,000", "Rental" ));
 		this.homeRepository.save(new Home(2, "Flat", "Electronic City Phase 1", "Bangalore", "17,00,000", "Flat" ));
+		this.homeRepository.save(new Home(3, "Flat", "Greater Chennai", "Chennai", "20,00,000", "Flat" ));
 	}
 
 }
